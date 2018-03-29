@@ -181,15 +181,6 @@ const Logo = styled(({ className }) => <div className={className}><img src={logo
   margin-bottom: 3rem;
 `
 
-const Hero = styled.div`
-  height: 80vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 500px;
-  margin: 1rem;
-`
-
 const Container = styled.div`
   max-width: 60rem;
   width: 100%;
@@ -207,7 +198,11 @@ const Apposto = styled.div`
 
 const Section = styled.div`
   background-color: ${props => props.grey ? '#fafafa' : ''};
-  padding: 4rem 2rem;
+  padding: 2rem 2rem;
+
+  @media screen and (min-width: 800px) {
+    padding: 4rem 2rem;
+  }
 `
 
 export default App;

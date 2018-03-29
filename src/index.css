@@ -51,7 +51,7 @@ ul {
 
 .Intro {
   margin-bottom: 2rem;
-  font-size: 2.5rem;
+  font-size: 1.75rem;
   font-weight: bold;
 }
 
@@ -61,7 +61,6 @@ ul {
 }
 
 .SubIntro {
-  font-size: 1.125rem;
   line-height: 1.5;
   margin-bottom: 2rem;
   max-width: 500px;
@@ -109,6 +108,12 @@ ul {
 }
 
 @media screen and (min-width: 800px) {
+  .Intro {
+    font-size: 2.5rem;
+  }
+  .SubIntro {
+    font-size: 1.125rem;
+  }
   .LetsGo {
     height: 44px;
     width: 260px;
