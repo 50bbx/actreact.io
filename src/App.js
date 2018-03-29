@@ -77,10 +77,20 @@ class Form extends Component {
   render() {
     return (
       <div>
-        {this.state.success && <Confetti
-          width={this.state.window.width}
-          height={this.state.window.height}
-        />}
+        {this.state.success && (
+          <div style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+          }}>
+            <Confetti
+              width={this.state.window.width}
+              height={this.state.window.height}
+            />
+          </div>
+        )}
         {!this.state.success ?
           <form className="Formerino" onSubmit={this.handleSubmit}>
             <input
@@ -109,76 +119,113 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <Section>
-          <Container>
-            <Wrapper>
-              <Logo />
-              <p className="Intro">
-                Learn React <em>for free</em> from the best open-source libraries, weekly in your inbox.
+      <React.Fragment>
+        <Body>
+          <Section>
+            <Container>
+              <Wrapper>
+                <Logo />
+                <p className="Intro">
+                  Learn React <em>for free</em> from the best open-source libraries, weekly in your inbox.
               </p>
 
-              <p className="SubIntro">
-                Sick of tired, shallow, sloppy React tutorials?
-                We love to read about real-world problems with real-world solutions by the best authors from the community.
+                <p className="SubIntro">
+                  Sick of tired, shallow, sloppy React tutorials?
+                  We love to read about real-world problems with real-world solutions by the best authors from the community.
               </p>
 
-              <Form />
-            </Wrapper>
-          </Container>
-        </Section>
-        <Section grey>
-          <Container>
-            <Wrapper>
-              <p className="Intro">The frontend panorama is changing <em>fast</em> and you need to <em>act</em>.
+                <Form />
+              </Wrapper>
+            </Container>
+          </Section>
+          <Section grey>
+            <Container>
+              <Wrapper>
+                <p className="Intro">The frontend panorama is changing <em>fast</em> and you need to <em>act</em>.
               </p>
-              <p className="SubIntro">
-                There is a lot to keep up with and limited time to learn. <br />
-                Let us do the digging, and just read what is important to you and your career.
+                <p className="SubIntro">
+                  There is a lot to keep up with and limited time to learn. <br />
+                  Let us do the digging, and just read what is important to you and your career.
               </p>
-              <p className="SubIntro">
-                This is the kind of content you will get in your inbox:
+                <p className="SubIntro">
+                  This is the kind of content you will get in your inbox:
 
                 <ul>
+                    <li><a href="#" target="_blank">Lorem ipsum</a> by <a href="#" target="_blank">Leonardo Stenico</a></li>
+                    <li><a href="#" target="_blank">Compose: How does it work?</a> by <a href="#" target="_blank">Marcello Luatti</a></li>
+                    <li><a href="#" target="_blank">Dogs with Pants</a> by <a href="#" target="_blank">Nazzareno Squadroni</a></li>
+                  </ul>
+                </p>
+                <Form cta="Dogs with pants? Sign me up!" />
+              </Wrapper>
+            </Container>
+          </Section>
+          <Section>
+            <Container>
+              <Wrapper>
+                <p className="Intro">
+                  Who are you?
+              </p>
+                <p className="SubIntro">
+                  We are a bunch of React junkies, always looking for the best, greatest content to bring our game to the next level, and we are eager to share it with you!
+              </p>
+                <p className="SubIntro">
+                  This is the kind of content you will get in your inbox:
+              </p>
+
+                <ul className="SubIntro">
                   <li><a href="#" target="_blank">Lorem ipsum</a> by <a href="#" target="_blank">Leonardo Stenico</a></li>
                   <li><a href="#" target="_blank">Compose: How does it work?</a> by <a href="#" target="_blank">Marcello Luatti</a></li>
                   <li><a href="#" target="_blank">Dogs with Pants</a> by <a href="#" target="_blank">Nazzareno Squadroni</a></li>
                 </ul>
-              </p>
-              <Form cta="Dogs with pants? Sign me up!" />
-            </Wrapper>
-          </Container>
-        </Section>
-        <Section>
-          <Container>
-            <Wrapper>
-              <p className="Intro">
-                Who are you?
-              </p>
-              <p className="SubIntro">
-                We are a bunch of React junkies, always looking for the best, greatest content to bring our game to the next level, and we are eager to share it with you!
-              </p>
-              <p className="SubIntro">
-                This is the kind of content you will get in your inbox:
-              </p>
 
-              <ul className="SubIntro">
-                <li><a href="#" target="_blank">Lorem ipsum</a> by <a href="#" target="_blank">Leonardo Stenico</a></li>
-                <li><a href="#" target="_blank">Compose: How does it work?</a> by <a href="#" target="_blank">Marcello Luatti</a></li>
-                <li><a href="#" target="_blank">Dogs with Pants</a> by <a href="#" target="_blank">Nazzareno Squadroni</a></li>
-              </ul>
+                <Form cta="Sounds legit, let's roll!" />
+              </Wrapper>
+            </Container>
+          </Section>
 
-              <Form cta="Sounds legit, let's roll!" />
-            </Wrapper>
-          </Container>
-        </Section>
-      </div>
+        </Body>
+        <Footer>
+          <Section>
+            <Container>
+              <Wrapper>
+                Made with 🤖 by <a href="#">@ggsimm</a>. Powered by React & Netlify. If you want to chat, click on the chat icon in the corner, powered by Drift!
+              </Wrapper>
+            </Container>
+          </Section>
+        </Footer>
+      </React.Fragment>
     );
   }
 }
 
 const Logo = styled(({ className }) => <div className={className}><img src={logo} width="120" /></div>) `
   margin-bottom: 3rem;
+`
+
+const Body = styled.div`
+  margin-bottom: 240px;
+  z-index: 2;
+  background-color: white;
+  position: relative;
+`
+
+const Footer = styled.div`
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: white;
+  padding: 1rem;
+  z-index: 1;
+  height: 240px;
+  color: #777;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 12px;
 `
 
 const Container = styled.div`
