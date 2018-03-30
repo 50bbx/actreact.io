@@ -121,7 +121,7 @@ class App extends Component {
     return (
       <React.Fragment>
         <Body>
-          <Section>
+          <Hero>
             <Container>
               <Wrapper>
                 <Logo />
@@ -137,7 +137,7 @@ class App extends Component {
                 <Form />
               </Wrapper>
             </Container>
-          </Section>
+          </Hero>
           <Section grey>
             <Container>
               <Wrapper>
@@ -199,10 +199,9 @@ class App extends Component {
   }
 }
 
-const Logo = styled(({ className }) => <div className={className}><img src={logo} width="120" /></div>) `
-  margin-bottom: 3rem;
+const Logo = styled(({ className }) => <div className={className}><img src={logo} width="140" /></div>) `
+  margin-bottom: 4rem;
 `
-
 const Body = styled.div`
   margin-bottom: 240px;
   z-index: 2;
@@ -250,6 +249,16 @@ const Section = styled.div`
   @media screen and (min-width: 800px) {
     padding: 4rem 2rem;
   }
+`
+
+const Hero = Section.extend`
+  color: white;
+  background-color: #16111C;
+
+  @media screen and (min-width: 800px) {
+    padding-bottom: 6rem;
+  }
+
 `
 
 export default App;
