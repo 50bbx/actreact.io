@@ -190,6 +190,7 @@ class App extends Component {
             <Container>
               <Wrapper>
                 Made with 🤖 by <a href="#">@ggsimm</a>. Powered by React & Netlify. If you want to chat, click on the chat icon in the corner, powered by Drift!
+                <br /> Logo: <a href="https://thenounproject.com/search/?q=chemistry&i=1556012#_=_">Chemistry</a> by dDara from the Noun Project
               </Wrapper>
             </Container>
           </Section>
