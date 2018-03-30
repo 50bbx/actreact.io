@@ -177,6 +177,7 @@ const ContentSample = styled.div`
   margin-left: -2rem;
 
   padding-left: 2rem;
+  padding-right: 2rem;
 
   > div {
     display: grid;
@@ -206,6 +207,7 @@ const ContentCard = styled.div`
 
   display: grid;
   grid-template-columns: 2fr 1fr;
+  grid-column-gap: 1rem;
 
   align-items: center;
 
@@ -222,10 +224,15 @@ const ContentCard = styled.div`
 `
 
 const LastSection = styled.div`
-  margin: 2rem;
-  padding: 5rem;
+  margin: 1rem;
+  padding: 2rem;
   background-color: #16111C;
   color: white;
+
+  @media screen and (min-width: 800px) {
+    margin: 2rem;
+    padding: 5rem;
+  }
 `
 
 export default App;
