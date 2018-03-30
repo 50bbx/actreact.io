@@ -4,11 +4,11 @@
 }
 
 html {
-  background-color: #222;
+  background-color: #16111C;
 }
 
 body {
-  color: #333;
+  color: #16111C;
   margin: 0;
   padding: 0;
   /* http://markdotto.com/2018/02/07/github-system-fonts/ */
@@ -20,11 +20,8 @@ h2,
 h3,
 h4,
 h5 {
-  font-family: 'Abril Fatface', cursive;
   font-weight: normal;
-  letter-spacing: 0.1rem;
-  margin: 0;
-  line-height: 1.6;
+  margin-top: 0;
 }
 
 a {
@@ -86,7 +83,7 @@ ul {
   background-color: transparent;
   font-size: 16px;
   border: 1px solid #ddd;
-  background-color: white;
+  color: inherit;
 }
 
 .Input:focus {
@@ -164,7 +161,6 @@ ul {
 }
 
 .Apposto {
-  font-size: 1.5rem;
   margin-bottom: 1.5rem;
   animation: fadeIn .6s forwards;
   height: 60px;

@@ -1,119 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 import styled from 'styled-components'
-import './App.css';
+import './App.css'
 
 import logo from './logo.svg'
-
-import Confetti from 'react-confetti'
-
-const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-
-class Form extends Component {
-  constructor() {
-    super()
-
-    this.state = {
-      email: null,
-      window: {},
-    }
-
-    this.handleSubmit = this.handleSubmit.bind(this)
-    this.handleChange = this.handleChange.bind(this)
-
-    this.handleResize = this.handleResize.bind(this)
-  }
-
-  componentDidMount() {
-    window.addEventListener('resize', this.handleResize)
-    this.handleResize()
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.handleResize)
-  }
-
-  handleResize() {
-    this.setState({
-      window: {
-        width: window.innerWidth,
-        height: window.innerHeight,
-      }
-    })
-  }
-
-  handleSubmit(e) {
-
-    e.preventDefault()
-
-    const { email } = this.state
-
-    const isValid = email && email.match(emailRegex)
-
-    if (isValid) {
-      this.setState({ isValid, isInvalid: false, isSubmitting: true })
-
-      setTimeout(() => {
-        this.setState({
-          success: true,
-        })
-      }, 1000)
-
-    } else {
-      this.setState({ isInvalid: true, isValid: false, })
-    }
-
-  }
-
-  handleChange(e) {
-
-    const email = e.target.value
-
-    this.setState({
-      email
-    })
-  }
-
-  render() {
-    return (
-      <div>
-        {this.state.success && (
-          <div style={{
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-          }}>
-            <Confetti
-              width={this.state.window.width}
-              height={this.state.window.height}
-            />
-          </div>
-        )}
-        {!this.state.success ?
-          <form className="Formerino" onSubmit={this.handleSubmit}>
-            <input
-              className="Input"
-              type="email"
-              name="email"
-              placeholder="Your Best Email"
-              onChange={this.handleChange}
-            />
-            <input type="submit" className="LetsGo" value={
-              this.state.isSubmitting ? "..." : (this.props.cta || "Cool, subscribe me!")
-            } />
-          </form> :
-          <div className="Apposto">
-            You're all done! <a href="#" target="_blank">Tweet</a>!
-                </div>
-        }
-        <small className="Disclaimer">No spam, just React and maybe some other frameworks thrown in the mix. <br /> Unsubscribe at any time.</small>
-
-      </div>
-    )
-  }
-}
+import Form from './Form'
 
 class App extends Component {
 
@@ -125,82 +16,88 @@ class App extends Component {
             <Container>
               <Wrapper>
                 <Logo />
-                <p className="Intro">
+                <h1 className="Intro">
                   Learn React <em>for free</em> from the best open-source libraries, weekly in your inbox.
-              </p>
+                </h1>
 
-                <p className="SubIntro">
+                <h2 className="SubIntro">
                   Sick of tired, shallow, sloppy React tutorials?
-                  We love to read about real-world problems with real-world solutions by the best authors from the community.
-              </p>
-
+                  We love to read about real-world problems with real-world solutions by the best authors in the community, and so will you.
+                </h2>
                 <Form />
               </Wrapper>
             </Container>
           </Hero>
-          <Section grey>
-            <Container>
-              <Wrapper>
-                <p className="Intro">The frontend panorama is changing <em>fast</em> and you need to <em>act</em>.
-              </p>
-                <p className="SubIntro">
-                  There is a lot to keep up with and limited time to learn. <br />
-                  Let us do the digging, and just read what is important to you and your career.
-              </p>
-                <p className="SubIntro">
-                  This is the kind of content you will get in your inbox:
-
-                <ul>
-                    <li><a href="#" target="_blank">Lorem ipsum</a> by <a href="#" target="_blank">Leonardo Stenico</a></li>
-                    <li><a href="#" target="_blank">Compose: How does it work?</a> by <a href="#" target="_blank">Marcello Luatti</a></li>
-                    <li><a href="#" target="_blank">Dogs with Pants</a> by <a href="#" target="_blank">Nazzareno Squadroni</a></li>
-                  </ul>
-                </p>
-                <Form cta="Dogs with pants? Sign me up!" />
-              </Wrapper>
-            </Container>
-          </Section>
           <Section>
             <Container>
               <Wrapper>
                 <p className="Intro">
                   Who are you?
-              </p>
-                <p className="SubIntro">
-                  We are a bunch of React junkies, always looking for the best, greatest content to bring our game to the next level, and we are eager to share it with you!
-              </p>
-                <p className="SubIntro">
-                  This is the kind of content you will get in your inbox:
-              </p>
+                </p>
+                <div>
+                  <p className="SubIntro">
+                    We are a bunch of React junkies, always looking for the best, greatest content to bring our game to the next level, and we are eager to share it with you!
+                  </p>
+                  <p className="SubIntro">
+                    There is a lot to keep up with and limited time to learn. <br />
+                    Let us do the digging, and just read what is important to you and your career.
+                  </p>
+                </div>
 
-                <ul className="SubIntro">
-                  <li><a href="#" target="_blank">Lorem ipsum</a> by <a href="#" target="_blank">Leonardo Stenico</a></li>
-                  <li><a href="#" target="_blank">Compose: How does it work?</a> by <a href="#" target="_blank">Marcello Luatti</a></li>
-                  <li><a href="#" target="_blank">Dogs with Pants</a> by <a href="#" target="_blank">Nazzareno Squadroni</a></li>
-                </ul>
+                <strong>This is the kind of content you will get every week in your inbox:</strong>
 
-                <Form cta="Sounds legit, let's roll!" />
               </Wrapper>
+
+              <ContentSample>
+                <ContentCard>
+                  <strong>Lorem ipsum</strong> <small>Leonardo Stenico</small>
+                </ContentCard>
+                <ContentCard>
+                  <strong>Compose: How does it work?</strong> <small>Marcello Luatti</small>
+                </ContentCard>
+                <ContentCard>
+                  <strong>Dogs with Pants</strong> <small>Nazzareno Squadroni</small>
+                </ContentCard>
+                <ContentCard>
+                  <strong>Lorem ipsum</strong> <small>Leonardo Stenico</small>
+                </ContentCard>
+                <ContentCard>
+                  <strong>Lorem ipsum</strong> <small>Leonardo Stenico</small>
+                </ContentCard>
+                <ContentCard>
+                  <strong>Lorem ipsum</strong> <small>Leonardo Stenico</small>
+                </ContentCard>
+              </ContentSample>
             </Container>
           </Section>
+
+          <LastSection>
+            <Container center dark>
+              <h2 className="Intro">
+                The frontend panorama is changing <em>fast</em> and you need to <em>act</em>.
+              </h2>
+
+              <Form cta="Sign me up!" />
+            </Container>
+          </LastSection>
 
         </Body>
         <Footer>
           <Section>
             <Container>
               <Wrapper>
-                Made with 🤖 by <a href="#">@ggsimm</a>. Powered by React & Netlify. If you want to chat, click on the chat icon in the corner, powered by Drift!
+                Made with 🤖 by <a href="#">@ggsimm</a> & <a href="#">@50bbx</a>. Powered by React & Netlify. If you want to chat, click on the chat icon in the corner, powered by Drift!
                 <br /> Logo: <a href="https://thenounproject.com/search/?q=chemistry&i=1556012#_=_">Chemistry</a> by dDara from the Noun Project
               </Wrapper>
             </Container>
           </Section>
         </Footer>
-      </React.Fragment>
+      </React.Fragment >
     );
   }
 }
 
-const Logo = styled(({ className }) => <div className={className}><img src={logo} width="140" /></div>) `
+const Logo = styled(({ className }) => <div className={className}><img src={logo} width="180" /></div>) `
   margin-bottom: 4rem;
 `
 const Body = styled.div`
@@ -208,6 +105,7 @@ const Body = styled.div`
   z-index: 2;
   background-color: white;
   position: relative;
+  padding-bottom: 1rem;
 `
 
 const Footer = styled.div`
@@ -232,6 +130,14 @@ const Container = styled.div`
   max-width: 60rem;
   width: 100%;
   margin: 0 auto;
+
+  ${props => props.center ? `
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  ` : ''}
 `
 
 const Wrapper = styled.div`
@@ -240,15 +146,15 @@ const Wrapper = styled.div`
 
 const Apposto = styled.div`
   height: 60px;
-  border: 1px solid red;
+  font-size: 1rem;
 `
 
 const Section = styled.div`
   background-color: ${props => props.grey ? '#fafafa' : ''};
-  padding: 2rem 2rem;
+  padding: 3rem 2rem;
 
   @media screen and (min-width: 800px) {
-    padding: 4rem 2rem;
+    padding: 5rem 2rem;
   }
 `
 
@@ -259,7 +165,43 @@ const Hero = Section.extend`
   @media screen and (min-width: 800px) {
     padding-bottom: 6rem;
   }
+`
 
+const ContentCard = styled.div`
+  border-radius: 5px;
+  background-color: #f8f8f8;
+  padding: .5rem 1rem;
+
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+
+  align-items: center;
+
+  &:hover {
+    background-color: rgb(140, 38, 236);
+    color: white;
+    cursor: pointer;
+  }
+
+  small {
+    font-size: .75rem;
+    font-weight: bold;
+  }
+`
+
+const ContentSample = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: .5rem;
+  grid-row-gap: .5rem;
+  margin-top: 2rem;
+`
+
+const LastSection = styled.div`
+  margin: 2rem;
+  padding: 3rem;
+  background-color: #16111C;
+  color: white;
 `
 
 export default App;
