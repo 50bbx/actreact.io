@@ -49,24 +49,26 @@ class App extends Component {
               </Wrapper>
 
               <ContentSample>
-                <ContentCard>
-                  <strong>Lorem ipsum</strong> <small>Leonardo Stenico</small>
-                </ContentCard>
-                <ContentCard>
-                  <strong>Compose: How does it work?</strong> <small>Marcello Luatti</small>
-                </ContentCard>
-                <ContentCard>
-                  <strong>Dogs with Pants</strong> <small>Nazzareno Squadroni</small>
-                </ContentCard>
-                <ContentCard>
-                  <strong>Lorem ipsum</strong> <small>Leonardo Stenico</small>
-                </ContentCard>
-                <ContentCard>
-                  <strong>Lorem ipsum</strong> <small>Leonardo Stenico</small>
-                </ContentCard>
-                <ContentCard>
-                  <strong>Lorem ipsum</strong> <small>Leonardo Stenico</small>
-                </ContentCard>
+                <div>
+                  <ContentCard>
+                    <strong>Lorem ipsum</strong> <small>Leonardo Stenico</small>
+                  </ContentCard>
+                  <ContentCard>
+                    <strong>Compose: How does it work?</strong> <small>Marcello Luatti</small>
+                  </ContentCard>
+                  <ContentCard>
+                    <strong>Dogs with Pants</strong> <small>Nazzareno Squadroni</small>
+                  </ContentCard>
+                  <ContentCard>
+                    <strong>Lorem ipsum</strong> <small>Leonardo Stenico</small>
+                  </ContentCard>
+                  <ContentCard>
+                    <strong>Lorem ipsum</strong> <small>Leonardo Stenico</small>
+                  </ContentCard>
+                  <ContentCard>
+                    <strong>Lorem ipsum</strong> <small>Leonardo Stenico</small>
+                  </ContentCard>
+                </div>
               </ContentSample>
             </Container>
           </Section>
@@ -167,6 +169,36 @@ const Hero = Section.extend`
   }
 `
 
+const ContentSample = styled.div`
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+
+  margin-right: -2rem;
+  margin-left: -2rem;
+
+  padding-left: 2rem;
+
+  > div {
+    display: grid;
+    width: 600px;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: .5rem;
+    grid-row-gap: .5rem;
+    margin-top: 2rem;
+  }
+
+  @media screen and ( min-width: 800px ) {
+
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+
+    > div {
+      width: 100%;
+    }
+  }
+`
+
 const ContentCard = styled.div`
   border-radius: 5px;
   background-color: #f8f8f8;
@@ -189,17 +221,9 @@ const ContentCard = styled.div`
   }
 `
 
-const ContentSample = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-column-gap: .5rem;
-  grid-row-gap: .5rem;
-  margin-top: 2rem;
-`
-
 const LastSection = styled.div`
   margin: 2rem;
-  padding: 3rem;
+  padding: 5rem;
   background-color: #16111C;
   color: white;
 `
