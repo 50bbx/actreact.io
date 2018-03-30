@@ -50,26 +50,30 @@ class App extends Component {
 
               <ContentSample>
                 <div>
-                  <ContentCard>
-                    <strong>Lorem ipsum</strong> <small>Leonardo Stenico</small>
-                  </ContentCard>
-                  <ContentCard>
-                    <strong>Compose: How does it work?</strong> <small>Marcello Luatti</small>
-                  </ContentCard>
-                  <ContentCard>
-                    <strong>Dogs with Pants</strong> <small>Nazzareno Squadroni</small>
-                  </ContentCard>
-                  <ContentCard>
-                    <strong>Lorem ipsum</strong> <small>Leonardo Stenico</small>
-                  </ContentCard>
-                  <ContentCard>
-                    <strong>Lorem ipsum</strong> <small>Leonardo Stenico</small>
+                  <ContentCard
+                    href="https://stories.algolia.com/a-painstakingly-crafted-search-for-hearthstone-c21b3fa4223c"
+                    target="_blank"
+                  >
+                    <strong>A painstakingly crafted search for Hearthstone</strong>
+                    <small>by Kevin Granger</small>
+
+                    <p>
+                      An in-depth case study from an Algolia engineer building a card search webapp from scratch.
+                    </p>
                   </ContentCard>
                   <ContentCard
                     href="https://stories.algolia.com/a-painstakingly-crafted-search-for-hearthstone-c21b3fa4223c"
                     target="_blank"
                   >
-                    <strong>A painstakingly crafted search for Hearthstone</strong> <small>Kevin Granger</small>
+                    <strong>A painstakingly crafted search for Hearthstone</strong>
+                    <small>by Kevin Granger</small>
+                  </ContentCard>
+                  <ContentCard
+                    href="https://stories.algolia.com/a-painstakingly-crafted-search-for-hearthstone-c21b3fa4223c"
+                    target="_blank"
+                  >
+                    <strong>A painstakingly crafted search for Hearthstone</strong>
+                    <small>by Kevin Granger</small>
                   </ContentCard>
                 </div>
               </ContentSample>
@@ -103,7 +107,11 @@ class App extends Component {
 }
 
 const Logo = styled(({ className }) => <div className={className}><img src={logo} width="180" /></div>) `
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
+
+  @media screen and (min-width: 800px) {
+    margin-bottom: 4rem;
+  }
 `
 const Body = styled.div`
   margin-bottom: 240px;
@@ -156,7 +164,7 @@ const Apposto = styled.div`
 
 const Section = styled.div`
   background-color: ${props => props.grey ? '#fafafa' : ''};
-  padding: 3rem 2rem;
+  padding: 2rem 2rem;
 
   @media screen and (min-width: 800px) {
     padding: 5rem 2rem;
@@ -184,8 +192,8 @@ const ContentSample = styled.div`
   > div {
     display: grid;
     width: 600px;
-    grid-template-columns: 1fr 1fr;
-    grid-column-gap: .5rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 1rem;
     grid-row-gap: .5rem;
     margin-top: 2rem;
   }
@@ -205,16 +213,21 @@ const ContentSample = styled.div`
 const ContentCard = styled.a`
   border-radius: 5px;
   background-color: #f8f8f8;
-  padding: .5rem 1rem;
+  padding: 1rem;
+  padding-bottom: 1.5rem;
+
+  margin-bottom: 1rem;
 
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 2fr 1fr;
   grid-column-gap: 1rem;
 
   align-items: center;
 
   color: #333;
   text-decoration: none;
+
+  box-shadow: 0 4px 10px -4px rgba(0, 0, 0, .24);
 
   &:hover {
     background-color: rgb(140, 38, 236);
@@ -226,6 +239,13 @@ const ContentCard = styled.a`
   small {
     font-size: .75rem;
     font-weight: bold;
+  }
+
+  p {
+    font-size: 1rem;
+    margin-top: 1rem;
+    font-size: .875rem;
+    margin-bottom: 0;
   }
 `
 
