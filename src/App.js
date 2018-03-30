@@ -65,8 +65,11 @@ class App extends Component {
                   <ContentCard>
                     <strong>Lorem ipsum</strong> <small>Leonardo Stenico</small>
                   </ContentCard>
-                  <ContentCard>
-                    <strong>Lorem ipsum</strong> <small>Leonardo Stenico</small>
+                  <ContentCard
+                    href="https://stories.algolia.com/a-painstakingly-crafted-search-for-hearthstone-c21b3fa4223c"
+                    target="_blank"
+                  >
+                    <strong>A painstakingly crafted search for Hearthstone</strong> <small>Kevin Granger</small>
                   </ContentCard>
                 </div>
               </ContentSample>
@@ -163,7 +166,6 @@ const Section = styled.div`
 const Hero = Section.extend`
   color: white;
   background-color: #16111C;
-
   @media screen and (min-width: 800px) {
     padding-bottom: 6rem;
   }
@@ -200,7 +202,7 @@ const ContentSample = styled.div`
   }
 `
 
-const ContentCard = styled.div`
+const ContentCard = styled.a`
   border-radius: 5px;
   background-color: #f8f8f8;
   padding: .5rem 1rem;
@@ -211,10 +213,14 @@ const ContentCard = styled.div`
 
   align-items: center;
 
+  color: #333;
+  text-decoration: none;
+
   &:hover {
     background-color: rgb(140, 38, 236);
     color: white;
     cursor: pointer;
+    text-decoration: underline;
   }
 
   small {
